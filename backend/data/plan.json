@@ -1,0 +1,129 @@
+{
+  "sessions": [
+    {
+      "day": "mon",
+      "type": "cardio",
+      "intensity": "easy",
+      "duration": 10,
+      "exercises": [
+        {
+          "name": "Squats",
+          "sets": 3,
+          "reps": 10
+        },
+        {
+          "name": "Push-ups",
+          "sets": 3,
+          "reps": 10
+        }
+      ],
+      "target_calories": 160.8
+    },
+    {
+      "day": "wed",
+      "type": "cardio",
+      "intensity": "moderate",
+      "duration": 10,
+      "exercises": [
+        {
+          "name": "Squats",
+          "sets": 3,
+          "reps": 12
+        },
+        {
+          "name": "Push-ups",
+          "sets": 3,
+          "reps": 12
+        },
+        {
+          "name": "Lunges",
+          "sets": 3,
+          "reps": 12
+        }
+      ],
+      "target_calories": 180.0
+    },
+    {
+      "day": "fri",
+      "type": "cardio",
+      "intensity": "hard",
+      "duration": 10,
+      "exercises": [
+        {
+          "name": "Squats",
+          "sets": 3,
+          "reps": 15
+        },
+        {
+          "name": "Push-ups",
+          "sets": 3,
+          "reps": 15
+        },
+        {
+          "name": "Planks",
+          "sets": 3,
+          "reps": 30
+        }
+      ],
+      "target_calories": 180.0
+    }
+  ],
+  "meals": [
+    {
+      "day": "mon",
+      "meals": [
+        "oatmeal with banana",
+        "grilled chicken with quinoa",
+        "steamed vegetables"
+      ]
+    },
+    {
+      "day": "tue",
+      "meals": [
+        "scrambled eggs with whole wheat toast",
+        "turkey and avocado wrap",
+        "mixed berries with yogurt"
+      ]
+    },
+    {
+      "day": "wed",
+      "meals": [
+        "smoothie bowl with spinach and almond milk",
+        "grilled salmon with brown rice",
+        "roasted sweet potatoes"
+      ]
+    },
+    {
+      "day": "thu",
+      "meals": [
+        "greek yogurt with honey and almonds",
+        "chicken and vegetable stir-fry",
+        "whole grain pasta with marinara sauce"
+      ]
+    },
+    {
+      "day": "fri",
+      "meals": [
+        "avocado toast with scrambled eggs",
+        "lentil soup with whole grain bread",
+        "grilled chicken with roasted broccoli"
+      ]
+    },
+    {
+      "day": "sat",
+      "meals": [
+        "overnight oats with nuts and seeds",
+        "grilled chicken with quinoa and steamed asparagus",
+        "mixed greens salad with grilled chicken"
+      ]
+    },
+    {
+      "day": "sun",
+      "meals": [
+        "breakfast burrito with scrambled eggs and black beans",
+        "grilled chicken with brown rice and steamed green beans",
+        "baked chicken with roasted carrots"
+      ]
+    }
+  ]
+}

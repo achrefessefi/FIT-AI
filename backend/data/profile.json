@@ -1,0 +1,19 @@
+{
+  "name": "Balkis",
+  "age": 22,
+  "height_cm": 160,
+  "weight_kg": 72.0,
+  "gender": "female",
+  "preferred_style": "cardio",
+  "fitness_level": "beginner",
+  "goal": "lose_weight",
+  "schedule": {
+    "days": [
+      "mon",
+      "wed",
+      "fri"
+    ],
+    "time_of_day": "morning",
+    "session_minutes": 10
+  }
+}

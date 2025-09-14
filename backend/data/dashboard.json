@@ -1,0 +1,62 @@
+{
+  "timestamp_utc": "2025-09-14T00:26:20Z",
+  "session": {
+    "first_session": {
+      "squat": {
+        "sets": 3,
+        "reps": 10
+      },
+      "push": {
+        "sets": 3,
+        "reps": 10
+      }
+    }
+  },
+  "summaries": {
+    "squat": {
+      "type": "workout_summary",
+      "timestamp_utc": "2025-09-14T00:26:13Z",
+      "session": {
+        "target_sets": 3,
+        "target_reps_per_set": 10
+      },
+      "totals": {
+        "sets_completed": 3,
+        "reps_completed": 30,
+        "good_reps_total": 12
+      },
+      "metrics": {
+        "avg_up_speed_norm": 0.8042,
+        "avg_down_speed_deg_s": 26.7,
+        "avg_cadence_rpm": 15.2,
+        "avg_motivation": 54.9,
+        "good_rep_rate_pct": 40.0
+      },
+      "verdict": "Could do better",
+      "notes": [
+        "ascent_moderate",
+        "descent_slow",
+        "cadence_moderate"
+      ],
+      "coaching_cues": [
+        "Great pace\u2014keep the same intent on each ascent."
+      ],
+      "explanations": [
+        "Ascent speed moderate (0.70\u20130.95) \u2014 push for a snappier stand-up.",
+        "Descent very slow (< 30\u00b0/s) \u2014 you can lower a bit faster while staying controlled.",
+        "Cadence is solid (10\u201318 rpm).",
+        "Squat deeper: depth shallow (knee angle > 150\u00b0).",
+        "Top pause long on average (> 2.5s) \u2014 start next rep sooner.",
+        "Reps timing inconsistent (high variability) \u2014 aim for steady tempo."
+      ]
+    },
+    "push": {
+      "type": "workout_summary",
+      "error": "no_json_block_found"
+    }
+  },
+  "quick": {
+    "squat_label": "Could do better",
+    "push_label": null
+  }
+}
