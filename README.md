@@ -220,33 +220,3 @@ python yoga.py
 npm run build
 npm run preview
 ```
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Commit changes: `git commit -m 'Add amazing feature'`
-4. Push to branch: `git push origin feature/amazing-feature`
-5. Open a Pull Request
-
-## 📝 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 🆘 Support
-
-For support and questions:
-- Open an issue on GitHub
-- Check the documentation
-- Review the code examples in each module
-
-## 🎉 Acknowledgments
-
-- **MediaPipe** for pose estimation technology
-- **OpenCV** for computer vision capabilities
-- **React** and **FastAPI** communities for excellent frameworks
-- **Chart.js** for beautiful data visualizations
-
----
-
-**Ready to transform your fitness journey with AI? Get started now!** 🚀💪
