@@ -236,3 +236,4 @@ python yoga.py
 - Breathing pattern analysis
 
 
+Project zip link: https://drive.google.com/file/d/1fbDTyZh6PwGORmB5P5U5tylh8UdwBy9o/view?usp=drive_link
