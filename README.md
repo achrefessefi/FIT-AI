@@ -1,4 +1,4 @@
-# 🏋️ FIT-AI: AI-Powered Fitness Coach
+# 🏋️ FIT-UP: AI-Powered Fitness Coach
 
 A comprehensive AI-powered fitness application that provides real-time workout analysis, form correction, and personalized coaching through computer vision and machine learning.
 
