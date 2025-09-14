@@ -34,6 +34,35 @@ A comprehensive AI-powered fitness application that provides real-time workout a
 - **Progress Tracking**: Weekly goals and achievement monitoring
 - **Workout Scheduling**: Plan and track your fitness routine
 
+### 🔬 Calorie Prediction Model
+
+- **Model:** `RandomForestRegressor` (scikit-learn)
+- **Target:** Estimated calories (kcal) for a workout window (per-session or per-interval, depending on API call)
+- **Features (inputs):**
+  - `hr` — Heart rate (bpm)
+  - `height_cm` — Height in centimeters
+  - `weight_kg` — Weight in kilograms
+  - `age_years` — Age in years
+  - `intensity` — Perceived intensity (e.g., 1–10 or 0.0–1.0)
+  - `workout_type` — Categorical: `cardio`, `yoga`, `strength`, `hiit`, `other`
+
+- **Artifacts:**
+  - Trained model saved at: `backend/app/utils/models/fitness_model.pkl`
+  - Inference helper: `backend/app/utils/predict.py`
+
+- **Example inference payload (FastAPI):**
+  ```json
+  {
+    "hr": 132,
+    "height_cm": 174,
+    "weight_kg": 72.5,
+    "age_years": 23,
+    "intensity": 0.7,
+    "workout_type": "cardio",
+    "duration_minutes": 15
+  }
+
+
 ## 🏗️ Architecture
 
 ```
