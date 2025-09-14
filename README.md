@@ -13,6 +13,16 @@ A comprehensive AI-powered fitness application that provides real-time workout a
 - **Performance Tracking**: Detailed metrics and progress visualization
 - **Calorie Prediction**: ML-powered calorie burn estimation
 - **Weekly Progress Reports**: Comprehensive fitness journey tracking
+- **Motivation Score**: Session-level score combining pace consistency, rest discipline, and rep quality
+
+### 🎶 Mood-Adaptive Soundtrack
+- **Emotion Detection (DeepFace)**: Live facial analysis (happy/neutral/sad/angry/surprise/fear) fused with the **motivation score**
+- **Auto Music Switching**: Dynamically changes **playlist/tempo/energy** to boost low motivation or calm post-set recovery
+- **Context Fusion**: Music decision = f(**emotion**, **motivation**, **weather**, **time of day**)
+  - Low motivation + evening → energetic tracks to re-engage
+  - High intensity set complete → downshift to calmer tracks during rest
+  - Hot weather → lighter tempo to control heart rate drift
+- **Seamless Transitions**: Crossfade and latency-aware switching so audio never feels jarring
 
 ### 🤖 AI Coach
 - **Form Feedback**: Real-time corrections and suggestions
@@ -28,22 +38,33 @@ A comprehensive AI-powered fitness application that provides real-time workout a
 
 ```
 FIT-AI/
-├── backend/                 # FastAPI backend server
+├── backend/                          # FastAPI backend server
 │   ├── app/
-│   │   ├── main.py         # Main FastAPI application
-│   │   └── core/
-│   │       └── config.py   # Configuration settings
-│   ├── data/               # JSON data storage
-│   └── utils/
-│       └── predict.py      # ML prediction utilities
-├── frontend/               # React frontend application
+│   │   ├── main.py                   # FastAPI app entrypoint
+│   │   ├── core/
+│   │   │   └── config.py             # Settings / env loader
+│   │   ├── utils/
+│   │   │   ├── predict.py            # ML prediction helpers
+│   │   │   └── models/               # Saved models / artifacts
+│   │   │       └── fitness_model.pkl # Example model file
+│   │   ├── routers/                  # (optional) API route modules
+│   │   └── schemas/                  # (optional) Pydantic models
+│   ├── data/                         # JSON/data storage (if needed)
+│   ├── requirements.txt              # Backend Python deps
+│   └── .env.example                  # Example env vars (no secrets)
+│
+├── frontend/                         # React frontend
 │   ├── src/
-│   │   ├── components/     # React components
-│   │   └── api.js          # API communication
-│   └── package.json
-├── push.py                 # Push-up analysis module
-├── squat.py                # Squat analysis module
-└── yoga.py                 # Yoga pose detection module
+│   │   ├── components/               # React components
+│   │   └── api.js                    # API client
+│   ├── package.json
+│   └── .env.example                  # Example frontend envs
+│
+├── push.py                           # Push-up analysis script
+├── squat.py                          # Squat analysis script
+├── mood_music.py                     # Mood analysis + music switching
+└── yoga.py                           # Yoga pose detection script
+
 ```
 
 ## 🚀 Quick Start
@@ -77,7 +98,7 @@ FIT-AI/
 4. **Start the backend server**:
    ```bash
    cd app
-   uvicorn main:app --reload --port 8000
+   uvicorn app.main:app --reload --app-dir backend
    ```
 
 ### Frontend Setup
@@ -117,47 +138,55 @@ python yoga.py
 
 ## 🔧 Technology Stack
 
+**3 AI Types Fusion:** Computer Vision (CV) + Generative AI (GEN) + Predictive AI (PRED)
+
 ### Backend
-- **FastAPI**: High-performance web framework
-- **OpenCV**: Computer vision for exercise tracking
-- **MediaPipe**: Pose estimation and landmark detection
-- **NumPy**: Numerical computations
-- **Scikit-learn**: Machine learning models
-- **GROQ**: AI coaching integration (optional)
+- **FastAPI** – high-performance API server
+- **OpenCV** – video capture & image processing
+- **MediaPipe BlazePose** – real-time body landmarks for form tracking
+- **DeepFace** – on-camera emotion detection (mood → music switching)
+- **NumPy** – numerical ops
+- **Scikit-learn (Random Forest + evaluation)** – calorie prediction & scoring models
+- *(Optional)* **GROQ (LLaMA-3.1-70B)** – Gen-AI coaching/tips generation
 
 ### Frontend
-- **React 18**: Modern UI framework
-- **Vite**: Fast build tool and dev server
-- **Chart.js**: Data visualization
-- **React Router**: Navigation
-- **Lucide React**: Icon library
+- **React 18** – modern UI framework
+- **Vite** – ultra-fast dev/build tooling
+- **Chart.js** – performance & mood visualizations
+- **React Router** – navigation
+- **Lucide React** – icon set
 
 ### Computer Vision
-- **MediaPipe Pose**: Real-time pose estimation
-- **OpenCV**: Image processing and camera handling
-- **Custom Algorithms**: Exercise-specific form analysis
+- **MediaPipe Pose (BlazePose)** – pose estimation
+- **OpenCV** – preprocessing, camera handling, overlays
+- **DeepFace** – emotion classification (happy/neutral/sad/angry/…)
+- **Custom Algorithms** – exercise-specific angle, cadence, depth & rep logic
 
-## 📊 Features Overview
+### Generative AI
+- **GROQ (LLaMA-3.1/70B)** – natural-language coaching, adaptive cues, summaries
 
-### Exercise Tracking
-- **Real-time pose detection** using MediaPipe
-- **Form analysis** with angle calculations and alignment checks
-- **Rep counting** with automatic detection
-- **Performance metrics** including speed, accuracy, and consistency
+### Predictive AI
+- **Scikit-learn: Random Forest** – calorie burn & motivation scoring
+- **Model evaluation** – metrics tracking and iteration
 
-### AI Coaching
-- **Voice feedback** during workouts
-- **Form corrections** with specific guidance
-- **Personalized recommendations** based on performance
-- **Progress tracking** with detailed analytics
+### Data Handling & Integrations
+- **Structured JSON** – session logs, configs, analytics
+- **CSV** – performance summaries
+- **OpenWeatherMap** – weather-aware coaching & soundtrack adjustments
 
-### Dashboard Analytics
-- **Weekly progress visualization**
-- **Calorie tracking and comparison**
-- **Performance charts** with historical data
-- **Workout scheduling** and goal setting
 
-## 🎯 Exercise Modules
+### 🗂️ Data
+
+- **Fitness Dataset (Hackathon JSON format):**
+  - We used the official hackathon-provided fitness data in **JSON** format (sessions, reps, timestamps, pose metrics).
+  - Stored under `backend/data/` and consumed by the FastAPI endpoints and analysis scripts.
+
+
+- **Weather Data (API):**
+  - Retrieved via a **Weather API** (e.g., OpenWeatherMap/WeatherAPI) to adapt coaching + music to ambient conditions.
+ 
+
+## 🎯 Exercise Modules (Prototype)
 
 ### Push-up Analysis (`push.py`)
 - Elbow angle tracking for proper form
@@ -177,46 +206,4 @@ python yoga.py
 - Hold duration tracking
 - Breathing pattern analysis
 
-## 🔮 API Endpoints
 
-### Core Endpoints
-- `GET /` - Health check
-- `POST /predict-calories` - Calorie burn prediction
-- `GET /dashboard-data` - Dashboard analytics
-- `POST /save-workout` - Workout data storage
-
-### Exercise Integration
-- Real-time form analysis
-- Performance metrics calculation
-- Progress tracking updates
-- AI coaching feedback
-
-## 🛠️ Development
-
-### Project Structure
-```
-├── backend/
-│   ├── app/main.py          # FastAPI routes and middleware
-│   ├── core/config.py       # Application configuration
-│   ├── data/               # JSON data storage
-│   └── utils/predict.py    # ML prediction models
-├── frontend/
-│   ├── src/components/     # React UI components
-│   ├── src/api.js         # Backend API communication
-│   └── package.json       # Dependencies and scripts
-└── *.py                   # Exercise tracking modules
-```
-
-### Running in Development Mode
-
-1. **Backend**: `uvicorn main:app --reload`
-2. **Frontend**: `npm run dev`
-3. **Exercise Modules**: `python [module_name].py`
-
-### Building for Production
-
-**Frontend**:
-```bash
-npm run build
-npm run preview
-```
